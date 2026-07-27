@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #05070d;
+  --color-ink-soft: #0b1020;
+  --color-accent: #6366f1;
+  --color-accent-soft: #818cf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: #e6e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose-legal h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c7d2fe;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-legal p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: #b6bdd0;
+}
+
+.prose-legal ul {
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.prose-legal li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  color: #b6bdd0;
+}
+
+.prose-legal a {
+  color: var(--color-accent-soft);
+  text-decoration: underline;
+}
+
+.prose-legal strong {
+  color: #e6e8f0;
+}
