@@ -27,8 +27,8 @@ export function Shot({
         <Image
           src={`/shots/${name}-light.png`}
           alt={alt}
-          width={2880}
-          height={1800}
+          width={4320}
+          height={2700}
           quality={92}
           priority={priority}
           sizes="(max-width: 1100px) 100vw, 1100px"
@@ -37,8 +37,8 @@ export function Shot({
         <Image
           src={`/shots/${name}-dark.png`}
           alt={alt}
-          width={2880}
-          height={1800}
+          width={4320}
+          height={2700}
           quality={92}
           sizes="(max-width: 1100px) 100vw, 1100px"
           className="hidden h-auto w-full dark:block"
