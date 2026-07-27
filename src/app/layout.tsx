@@ -120,10 +120,10 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <ThemeToggle />
           <a href={MAILTO} className="btn btn-primary !h-9 !px-4 !text-[13.5px]">
             Solicitar acceso
           </a>
+          <ThemeToggle />
         </div>
       </div>
     </header>
