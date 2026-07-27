@@ -13,11 +13,11 @@ const LAST_UPDATED = "27 de julio de 2026";
 export default function Privacy() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
-      <p className="text-sm font-medium text-indigo-400">Legal</p>
-      <h1 className="mt-2 text-4xl font-semibold tracking-tight text-white">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-accent-text">Legal</p>
+      <h1 className="mt-3 text-[34px] font-semibold sm:text-[42px]">
         Política de Privacidad
       </h1>
-      <p className="mt-3 text-sm text-slate-400">
+      <p className="mt-3 text-[13.5px] text-fg-dim">
         Última actualización: {LAST_UPDATED}
       </p>
 
@@ -350,8 +350,8 @@ export default function Privacy() {
         </p>
       </div>
 
-      <div className="mt-12 border-t border-white/10 pt-6">
-        <Link href="/" className="text-sm text-indigo-300 hover:underline">
+      <div className="mt-12 border-t border-border pt-6">
+        <Link href="/" className="link-accent text-[14px]">
           ← Volver al inicio
         </Link>
       </div>
