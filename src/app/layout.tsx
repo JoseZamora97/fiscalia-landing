@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Zen_Dots } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { Logo } from "@/components/logo";
@@ -17,6 +17,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-geist-mono",
+  display: "swap",
+});
+
+// The product sets its GENIA wordmark in Zen Dots; the landing matches it.
+const zenDots = Zen_Dots({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-zen-dots",
   display: "swap",
 });
 
@@ -190,7 +198,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${zenDots.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />

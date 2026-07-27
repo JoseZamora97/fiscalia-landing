@@ -29,6 +29,7 @@ export function Shot({
           alt={alt}
           width={2880}
           height={1800}
+          quality={92}
           priority={priority}
           sizes="(max-width: 1100px) 100vw, 1100px"
           className="block h-auto w-full dark:hidden"
@@ -38,6 +39,7 @@ export function Shot({
           alt={alt}
           width={2880}
           height={1800}
+          quality={92}
           sizes="(max-width: 1100px) 100vw, 1100px"
           className="hidden h-auto w-full dark:block"
         />

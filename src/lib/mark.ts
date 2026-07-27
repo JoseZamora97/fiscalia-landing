@@ -1,3 +1,10 @@
-const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#00c389"/><path d="M21.657 10.343 A 8 8 0 1 0 24 16 L 18 16" fill="none" stroke="#001a11" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
-export const MARK_DATA_URI = `data:image/svg+xml;base64,${Buffer.from(MARK_SVG).toString("base64")}`;
+/**
+ * The product's app icon, inlined for `next/og`, which cannot resolve relative
+ * URLs while the OG image is generated at build time.
+ */
+const png = readFileSync(join(process.cwd(), "public", "icon-512.png"));
+
+export const MARK_DATA_URI = `data:image/png;base64,${png.toString("base64")}`;

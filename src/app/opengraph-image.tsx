@@ -20,7 +20,7 @@ export default function OpengraphImage() {
           padding: "76px 72px",
           background: "#16181c",
           backgroundImage:
-            "radial-gradient(700px 460px at 6% 0%, rgba(0,195,137,0.20), transparent 62%), radial-gradient(620px 420px at 96% 6%, rgba(91,141,255,0.18), transparent 62%), radial-gradient(520px 360px at 55% 100%, rgba(192,132,252,0.14), transparent 62%)",
+            "radial-gradient(700px 460px at 6% 0%, rgba(255,92,92,0.22), transparent 62%), radial-gradient(620px 420px at 96% 6%, rgba(91,141,255,0.18), transparent 62%), radial-gradient(520px 360px at 55% 100%, rgba(192,132,252,0.14), transparent 62%)",
           color: "#e8e9ea",
           fontFamily: "sans-serif",
         }}
@@ -38,7 +38,7 @@ export default function OpengraphImage() {
             }}
           >
             <span>Genia</span>
-            <span style={{ color: "#00c389" }}>Ops</span>
+            <span style={{ color: "#ff7a7a" }}>Ops</span>
           </div>
         </div>
 
@@ -68,9 +68,9 @@ export default function OpengraphImage() {
               gap: 10,
               padding: "10px 20px",
               borderRadius: 999,
-              border: "1px solid rgba(0,195,137,0.32)",
-              background: "rgba(0,195,137,0.12)",
-              color: "#00c389",
+              border: "1px solid rgba(255,92,92,0.32)",
+              background: "rgba(255,92,92,0.14)",
+              color: "#ff7a7a",
               fontSize: 24,
             }}
           >

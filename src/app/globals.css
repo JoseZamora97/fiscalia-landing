@@ -49,10 +49,11 @@
   --font-body: var(--font-geist), "Inter", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
-  --accent: #00c389;
-  --accent-fg: #001a11;
-  --accent-soft: rgba(0, 195, 137, 0.12);
-  --accent-border: rgba(0, 195, 137, 0.32);
+  /* GENIA red — same value the product ships as its brand accent. */
+  --accent: #ff5c5c;
+  --accent-fg: #2a0606;
+  --accent-soft: rgba(255, 92, 92, 0.14);
+  --accent-border: rgba(255, 92, 92, 0.32);
 
   --status-running: #00c389;
   --status-pending: #f5a524;
@@ -76,7 +77,9 @@
   --fg-dim: #8a8f98;
   --code-bg: #f4f4f5;
   --grid-line: rgba(0, 0, 0, 0.045);
-  --accent-text: #00845d;
+  /* Darkened accent for body-size text: the brand red itself only reaches
+   * 2.8:1 on this background. */
+  --accent-text: #c62f2f;
 
   --glass-bg: rgba(255, 255, 255, 0.5);
   --glass-bg-strong: rgba(255, 255, 255, 0.72);
@@ -101,7 +104,7 @@
   --fg-dim: #5a6068;
   --code-bg: #131519;
   --grid-line: rgba(255, 255, 255, 0.045);
-  --accent-text: #00c389;
+  --accent-text: #ff7a7a;
 
   --glass-bg: rgba(32, 35, 41, 0.55);
   --glass-bg-strong: rgba(27, 30, 36, 0.8);
