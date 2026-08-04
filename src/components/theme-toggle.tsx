@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "genia.theme";
 
-export function ThemeToggle() {
+export function ThemeToggle({
+  labelToLight,
+  labelToDark,
+}: {
+  labelToLight: string;
+  labelToDark: string;
+}) {
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
@@ -26,7 +32,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={theme === "dark" ? "Cambiar a tema claro" : "Cambiar a tema oscuro"}
+      aria-label={theme === "dark" ? labelToLight : labelToDark}
       className="grid h-9 w-9 place-items-center rounded-md border border-border-strong bg-bg-elev text-fg-muted transition hover:bg-bg-hover hover:text-fg"
     >
       <svg

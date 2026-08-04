@@ -1,12 +1,17 @@
 import { ImageResponse } from "next/og";
 import { MARK_DATA_URI } from "@/lib/mark";
 
-export const alt =
-  "Genia Ops — agentes de IA que planifican y ejecutan sobre tus propios datos";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const OG_SIZE = { width: 1200, height: 630 };
 
-export default function OpengraphImage() {
+export function ogImage({
+  title,
+  subtitle,
+  byline,
+}: {
+  title: string;
+  subtitle: string;
+  byline: string;
+}) {
   return new ImageResponse(
     (
       <div
@@ -52,11 +57,10 @@ export default function OpengraphImage() {
               maxWidth: 940,
             }}
           >
-            Agentes de IA que trabajan sobre tus propios datos
+            {title}
           </div>
           <div style={{ fontSize: 27, color: "#8a8f98", maxWidth: 880, lineHeight: 1.45 }}>
-            Conecta tu correo, tus documentos y tus repositorios. Genia Ops los
-            organiza en un grafo privado y planifica el trabajo bajo tu supervisión.
+            {subtitle}
           </div>
         </div>
 
@@ -76,10 +80,10 @@ export default function OpengraphImage() {
           >
             geniaops.com
           </div>
-          <div style={{ fontSize: 24, color: "#5a6068" }}>por ZC Tech Partners</div>
+          <div style={{ fontSize: 24, color: "#5a6068" }}>{byline}</div>
         </div>
       </div>
     ),
-    size,
+    OG_SIZE,
   );
 }
