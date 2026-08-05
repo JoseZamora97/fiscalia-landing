@@ -42,12 +42,6 @@ function Header({ lang }: { lang: Lang }) {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a
-            href={mailto(lang)}
-            className="btn btn-primary !h-9 !px-4 !text-[13.5px] max-sm:hidden"
-          >
-            {d.requestAccess}
-          </a>
           <LanguageToggle label={d.languageLabel} />
           <ThemeToggle labelToLight={d.themeToLight} labelToDark={d.themeToDark} />
         </div>
