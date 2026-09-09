@@ -93,6 +93,15 @@ export type Dict = {
 
   whatIs: { title: string; paragraphs: Rich[] };
 
+  audiences: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    items: { id: string; label: string; title: string; body: string; example: string; outcome: string }[];
+  };
+  difference: { eyebrow: string; title: string; body: string; items: Card[] };
+  ownership: { eyebrow: string; title: string; body: string };
+
   product: { eyebrow: string; title: string; body: string; features: Feature[] };
   how: { eyebrow: string; title: string; steps: Step[] };
   sources: { eyebrow: string; title: string; body: string; items: Source[] };

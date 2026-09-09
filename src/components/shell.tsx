@@ -46,6 +46,9 @@ function Header({ lang }: { lang: Lang }) {
           <ThemeToggle labelToLight={d.themeToLight} labelToDark={d.themeToDark} />
         </div>
       </div>
+      <nav aria-label={`${d.navAria} — ${lang === "es" ? "móvil" : "mobile"}`} className="mobile-nav lg:hidden">
+        {d.nav.map(item => <Link key={item.href} href={navHref(lang, item.href)}>{item.label}</Link>)}
+      </nav>
     </header>
   );
 }

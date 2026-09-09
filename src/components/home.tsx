@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroScene } from "@/components/hero-scene";
 import { dict, useCases } from "@/content";
 import { localePath, type Lang } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
@@ -39,12 +40,7 @@ function JsonLd({ lang }: { lang: Lang }) {
         url,
         description: d.description,
         publisher: { "@id": `${SITE.url}/#organization` },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "EUR",
-          availability: "https://schema.org/LimitedAvailability",
-        },
+        releaseNotes: d.hero.badge,
       },
       {
         "@type": "FAQPage",
@@ -74,68 +70,45 @@ export function Home({ lang }: { lang: Lang }) {
     <>
       <JsonLd lang={lang} />
 
-      {/* ------------------------------------------------------------ hero */}
-      <section className="relative">
-        <div className="mx-auto max-w-6xl px-6 pb-16 pt-16 sm:pt-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="badge badge-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-current" />
-              {d.hero.badge}
-            </span>
-
-            <h1 className="mt-6 text-[38px] font-semibold leading-[1.08] sm:text-[60px]">
-              {d.hero.titleTop}
-              <br className="hidden sm:block" />{" "}
-              <span className="text-accent-text">{d.hero.titleAccent}</span>
-            </h1>
-
-            <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-fg-muted">
-              <Rich>{`**${SITE.name}** ${d.hero.lede}`}</Rich>
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <a href={mailto(lang)} className="btn btn-primary">
-                {d.requestAccess}
-              </a>
-              <Link href={`${localePath(lang, "/")}#product`} className="btn">
-                {d.hero.ctaSecondary}
-              </Link>
+      <section className="enterprise-hero">
+        <HeroScene />
+        <div className="hero-inner">
+          <div className="hero-copy">
+            <span className="badge badge-accent"><span className="release-dot" />{d.hero.badge}</span>
+            <h1>{d.hero.titleTop}<br /><span>{d.hero.titleAccent}</span></h1>
+            <p className="hero-lede"><Rich>{`**${SITE.name}** ${d.hero.lede}`}</Rich></p>
+            <div className="hero-actions">
+              <a href={mailto(lang)} className="btn btn-primary">{d.requestAccess}<Arrow /></a>
+              <a href="#product" className="hero-text-link">{d.hero.ctaSecondary}<span aria-hidden="true"> ↘</span></a>
             </div>
-
-            <p className="mt-5 text-[13px] text-fg-dim">{d.hero.note}</p>
+            <p className="hero-note">{d.hero.note}</p>
           </div>
-
-          <div className="mt-14">
-            <Shot
-              name="project-detail"
-              alt={d.hero.shotAlt}
-              url="app.geniaops.com/projects/tax-close"
-              priority
-            />
-          </div>
-
-          <dl className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-border bg-border sm:grid-cols-3">
-            {d.stats.map((s) => (
-              <div key={s.label} className="bg-[var(--bg-elev)] px-6 py-7 text-center">
-                <dt className="sr-only">{s.label}</dt>
-                <dd>
-                  <span className="flex h-14 items-center justify-center">
-                    <span
-                      className={
-                        s.emphasis
-                          ? "text-[76px] font-semibold leading-none text-accent-text"
-                          : "text-[34px] font-semibold leading-none text-fg"
-                      }
-                    >
-                      {s.value}
-                    </span>
-                  </span>
-                  <span className="mt-1 block text-[13.5px] text-fg-muted">{s.label}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <div className="hero-caption" aria-hidden="true"><span>GENIA / OPS</span><span>{lang === "es" ? "INTELIGENCIA EN OPERACIÓN" : "INTELLIGENCE IN OPERATION"}</span></div>
         </div>
+        <div className="hero-product">
+          <div className="product-caption"><span className="release-dot" />{lang === "es" ? "Un espacio. Personas, agentes y conocimiento." : "One workspace. People, agents and knowledge."}<span className="caption-index">01 / GENIA OS</span></div>
+          <Shot name="project-detail" alt={d.hero.shotAlt} url="app.geniaops.com" priority />
+        </div>
+        <dl className="principles-strip">
+          {d.stats.map(s => <div key={s.label}><dt>{s.value}</dt><dd>{s.label}</dd></div>)}
+        </dl>
+      </section>
+
+      <section id="for-business" className="audience-section section-wrap">
+        <SectionHead eyebrow={d.audiences.eyebrow} title={d.audiences.title} body={d.audiences.body} />
+        <div className="audience-grid">
+          {d.audiences.items.map((item, index) => <article className="audience-card" id={item.id} key={item.id}>
+            <div className="audience-top"><span className="eyebrow">{item.label}</span><span className="card-index">0{index + 1}</span></div>
+            <div className={`scale-art scale-art-${index}`} aria-hidden="true">{Array.from({length: 9}, (_, i) => <i key={i} />)}</div>
+            <h3>{item.title}</h3><p>{item.body}</p>
+            <div className="audience-example"><span className="eyebrow">{lang === "es" ? "UN EJEMPLO" : "IN PRACTICE"}</span><p>{item.example}</p></div>
+            <p className="audience-outcome"><Arrow />{item.outcome}</p>
+          </article>)}
+        </div>
+      </section>
+
+      <section className="ownership-section">
+        <div className="section-wrap ownership-grid"><p className="eyebrow">{d.ownership.eyebrow}</p><div><h2>{d.ownership.title}</h2><p>{d.ownership.body}</p></div></div>
       </section>
 
       {/* ---------------------------------------------------------- what is */}
@@ -271,6 +244,11 @@ export function Home({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      <section id="why-genia" className="section-wrap difference-section">
+        <SectionHead eyebrow={d.difference.eyebrow} title={d.difference.title} body={d.difference.body} />
+        <div className="difference-grid">{d.difference.items.map((item, i) => <article key={item.title}><span className="card-index">0{i + 1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
+      </section>
+
       {/* ------------------------------------------------------- use cases */}
       <section id="use-cases" className="scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 py-20">
@@ -339,7 +317,7 @@ export function Home({ lang }: { lang: Lang }) {
       {/* ------------------------------------------------------------- cta */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <div className="glass-card dot-grid px-8 py-16 text-center">
+          <div className="invitation-card px-8 py-16 text-center">
             <h2 className="text-[30px] font-semibold sm:text-[38px]">{d.cta.title}</h2>
             <p className="mx-auto mt-4 max-w-xl text-[16px] leading-relaxed text-fg-muted">
               {d.cta.body}

@@ -9,12 +9,13 @@ export const useCasesEn: UseCase[] = [
     summary:
       "Match bank movements against the invoices that arrived by email, find the receipts that are missing and hand the quarter over ready.",
     metaDescription:
-      "How Genia Ops cross-references bank statements, emails and invoices to close the quarter: automatic reconciliation, a short list of missing receipts and a folder ready for your accountant.",
+      "How Genia Ops cross-references bank statements, emails and invoices to close the quarter: assisted reconciliation, a short list of missing receipts and a folder ready for your accountant.",
     who: "Finance and admin teams in small and mid-sized companies, high-volume freelancers, and firms preparing their clients' close.",
     scenario: [
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
       "Every quarter closes the same way: a bank statement in one tab, the inbox in another and a downloads folder full of invoices named `invoice_final_v2.pdf`. Each charge has to be identified, matched to the email that carried the invoice, checked against the amount and filed where it belongs.",
       "The problem is not difficulty, it is volume and dispersion. The information exists, but it lives split across the bank, three inboxes, the department's Drive and the attachments somebody forwarded to themselves. Nobody has the whole picture until they sit down and assemble it by hand — and by then the accountant is already asking for the numbers.",
-      "The usual outcome is two or three days of mechanical work per quarter, plus the back and forth over receipts that never turn up and end up written off as non-deductible.",
+      "Manual reconciliation can delay the close and leave unresolved receipts for the finance team to investigate.",
     ],
     problems: [
       "A receipt may sit in an email, in an attachment or in a shared folder, with no way to know without looking",
@@ -26,7 +27,7 @@ export const useCasesEn: UseCase[] = [
     approach: [
       {
         title: "Index the inbox and folders where the invoices already are",
-        body: "You connect Gmail or Outlook and whichever cloud storage you use. Genia Ops indexes emails, threads and attachments into the knowledge graph: every PDF stays linked to the email that carried it, the sender and the date.",
+        body: "You connect Gmail or Outlook and whichever cloud storage you use. Genia Ops indexes emails, threads and attachments as reusable business context: every PDF stays linked to the email that carried it, the sender and the date.",
       },
       {
         title: "Upload the statement and the agent reconciles it",
@@ -37,8 +38,8 @@ export const useCasesEn: UseCase[] = [
         body: "The agent on each objective looks for the invoice behind every charge, checks the amount and the date, and records where it found it. When the amount does not add up — a fee, a currency conversion — it flags it instead of forcing the match.",
       },
       {
-        title: "It asks instead of inventing",
-        body: "If a charge has no locatable receipt, the agent does not wave it through: it raises the question in the chat with whatever it did find, and you decide whether to chase the vendor or mark it non-deductible.",
+        title: "Review unresolved matches",
+        body: "Ask the agent to flag missing receipts and uncertain matches. Finance reviews the evidence and decides whether to follow up or how to treat the charge.",
       },
     ],
     outcomes: [
@@ -54,14 +55,15 @@ export const useCasesEn: UseCase[] = [
     slug: "document-due-diligence",
     eyebrow: "Legal",
     title: "Document due diligence",
-    fullTitle: "Document due diligence across hundreds of contracts",
+    fullTitle: "Document due diligence across a contract portfolio",
     summary:
-      "Review hundreds of contracts, extract the clauses that matter and rank them by severity, each linked to the exact page of the original.",
+      "Review a contract portfolio, extract the clauses that matter and rank them by severity, with source references for human validation.",
     metaDescription:
-      "How Genia Ops speeds up document due diligence: it reviews hundreds of contracts, extracts change-of-control, exclusivity and penalty clauses and ranks them by severity, citing the original.",
+      "How Genia Ops supports document due diligence: it reviews authorised contracts, extracts change-of-control, exclusivity and penalty clauses and ranks them by severity, citing the original.",
     who: "Legal teams, corporate transaction advisers and compliance leads who receive a data room and have a delivery date.",
     scenario: [
-      "A data room lands with six hundred documents and a delivery date three weeks out. Framework agreements, addenda that amend contracts which themselves amend others, scans from the nineties and spreadsheets holding the vendor inventory.",
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
+      "Consider a data room with a large document portfolio and a fixed delivery date. Framework agreements, addenda that amend contracts which themselves amend others, scans from the nineties and spreadsheets holding the vendor inventory.",
       "What you are looking for is specific: change-of-control clauses, exclusivities, penalties, automatic renewals, liability caps outside market practice. What eats the time is not analysing them, it is finding them. Screening reading takes most of the billable hours and it is precisely the part that adds the least value.",
       "And there is a worse risk than cost: a material clause buried in the annex of an addendum nobody got round to opening.",
     ],
@@ -75,24 +77,24 @@ export const useCasesEn: UseCase[] = [
     approach: [
       {
         title: "The whole data room becomes queryable",
-        body: "You connect the shared folder — Drive, Dropbox, OneDrive or SharePoint — and Genia Ops indexes the content, scans included, into the knowledge graph. From there, any question is answered against the full corpus rather than what somebody remembers reading.",
+        body: "You connect the shared folder — Drive, Dropbox, OneDrive or SharePoint — and Genia Ops indexes the content, including scans that can be extracted, as reusable business context. From there, questions can use the indexed material rather than relying on recollection alone.",
       },
       {
         title: "You define the criteria once, they apply to everything",
-        body: "You describe what you are looking for and at what severity. The planner turns that into concrete objectives and tasks, so the same yardstick is applied to all six hundred documents instead of one interpretation per reviewer.",
+        body: "You describe what you are looking for and at what severity. The planner turns that into concrete objectives and tasks, so the same yardstick is applied to the authorised documents instead of one interpretation per reviewer.",
       },
       {
         title: "Every finding cites its source",
-        body: "The agent returns the clause, the document and its exact position inside it. Human review stops being screening reading and becomes validation of specific findings.",
+        body: "The agent proposes findings with document references and locations where available, for reviewers to verify. Human review stops being screening reading and becomes validation of specific findings.",
       },
       {
         title: "It relates a document to whatever amends it",
-        body: "Because everything sits in the same graph, a contract shows up next to its addenda and next to the emails where it was negotiated, so a clause is never read outside the context that changed it.",
+        body: "With authorised contracts, addenda and emails available together, a contract shows up next to its addenda and next to the emails where it was negotiated, so reviewers can check a clause against the context that changed it.",
       },
     ],
     outcomes: [
       "An inventory of material clauses ranked by severity",
-      "Every finding linked to the document and page of the original",
+      "Findings with source references and page locations where available",
       "Explicit gaps: which documents are missing or could not be read",
       "A corpus that stays queryable when new questions come up",
     ],
@@ -110,6 +112,7 @@ export const useCasesEn: UseCase[] = [
       "How Genia Ops rebuilds recurring spend: it cross-references statements and emails to surface duplicate subscriptions, silent price rises and automatic renewals before they are charged.",
     who: "Finance, operations and IT leads in organisations where several people can sign up for tools with a company card.",
     scenario: [
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
       "Nobody over-subscribed on purpose. Over three years, different teams simply signed up for tools with the company card: two task managers, three cloud storage plans, licences for people who have since left, and a plan that doubled when somebody opened a second account for a trial.",
       "Recurring spend is the least scrutinised because each line is small. Added up it is a serious budget item, and the only complete trace of what was signed and on what terms lives in signup emails and monthly invoices, scattered across personal inboxes.",
       "When somebody asks how much you spend on software, the honest answer is usually an estimate.",
@@ -128,7 +131,7 @@ export const useCasesEn: UseCase[] = [
       },
       {
         title: "Group what is really the same vendor",
-        body: "The agent recognises that a charge, an invoice and a welcome email refer to the same service even when the bank descriptor looks nothing like the commercial name, and folds them into a single line.",
+        body: "The agent proposes whether a charge, an invoice and a welcome email refer to the same service even when the bank descriptor looks nothing like the commercial name, and folds them into a single line.",
       },
       {
         title: "Surface what deserves a decision",
@@ -141,7 +144,7 @@ export const useCasesEn: UseCase[] = [
     ],
     outcomes: [
       "The inventory of active subscriptions with their annualised cost",
-      "The list of duplicates and unused licences, with the estimated saving",
+      "Potential duplicates and unused licences, with savings estimates to validate",
       "A renewal calendar including notice periods",
       "The price history per vendor, so you negotiate with data",
     ],
@@ -156,9 +159,10 @@ export const useCasesEn: UseCase[] = [
     summary:
       "Ask in plain language across your documentation, your repositories and your record of past decisions, and get the answer with its source cited.",
     metaDescription:
-      "How Genia Ops turns documentation, emails, repositories and recordings into a knowledge base you can query in plain language, with the source cited in every answer.",
+      "How Genia Ops turns documentation, emails, repositories and recordings into a knowledge base you can query in plain language, with references for verification.",
     who: "Product, engineering and operations teams carrying years of decisions spread across documents, email threads and repositories.",
     scenario: [
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
       "The question comes round every few weeks: “why did we do it this way?” The answer exists — in a document from two years ago, in an email thread with the client, in a commit message — but finding it costs more than deciding again, so it gets decided again. Sometimes differently.",
       "The cost is not just search time. It is onboarding somebody who has to interrupt the veterans to get anywhere, redoing an analysis that was already done, and losing the context behind decisions when the person who made them leaves.",
       "Formal documentation covers a small slice of that knowledge. Most of it sits in day-to-day working material that was never organised, because organising it was a project in itself.",
@@ -172,12 +176,12 @@ export const useCasesEn: UseCase[] = [
     ],
     approach: [
       {
-        title: "One graph across every source",
-        body: "Documents, emails, repositories and video are indexed into the same knowledge graph. A question crosses all four without you having to know in advance which one holds the answer.",
+        title: "Shared knowledge across authorised sources",
+        body: "Documents, emails, repositories and video are indexed as shared business context. A question crosses all four without you having to know in advance which one holds the answer.",
       },
       {
         title: "Answers with the source in front of you",
-        body: "Every answer comes with the document, email or file it came from. You can check it in one click instead of trusting it — which is the difference between a useful tool and a novelty.",
+        body: "Ask for references to the underlying document, email or file. Review those sources before relying on an answer, especially when context is incomplete.",
       },
       {
         title: "Meetings stop being a black hole",
@@ -185,14 +189,14 @@ export const useCasesEn: UseCase[] = [
       },
       {
         title: "Past work becomes reusable context",
-        body: "Projects already closed in Genia Ops stay available as a source. An analysis done six months ago is not repeated — it is consulted.",
+        body: "Projects already closed in Genia Ops stay available as a source. An earlier analysis can inform the next task instead of starting from scratch.",
       },
     ],
     outcomes: [
-      "A single place to ask about any past decision",
+      "A shared place to consult documented decisions within your access",
       "Cited answers you can check against the original",
-      "Faster onboarding that does not depend on interrupting the veterans",
-      "Knowledge stops belonging to whoever happened to be there that day",
+      "Reusable onboarding context to support new team members",
+      "Business knowledge retained beyond individual handovers",
     ],
     sources: ["Google Drive", "GitHub", "Gmail and Outlook", "Video and audio", "Your projects"],
   },
@@ -208,9 +212,10 @@ export const useCasesEn: UseCase[] = [
       "How Genia Ops unifies the document archive of two merging law firms — matters, emails and scans — and hands it normalised to SententIA for AI-assisted case management.",
     who: "Firms that are merging, absorbing a client portfolio, or integrating offices that until now ran on their own.",
     scenario: [
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
       "Two firms sign the integration. On paper it is an addition; in practice each one arrives with its own way of numbering matters, its own filing criteria and twenty years of archive in formats ranging from native PDF to the scan of a fax.",
       "For the first months the new firm works with two parallel archives. A partner from the incoming office cannot search the other side's archive, and vice versa. Conflicts of interest have to be checked twice, in two systems, under two naming schemes. And procedural deadlines do not wait for the integration to finish.",
-      "The migration project gets budgeted at a year and outsourced to a team typing metadata. Meanwhile the archive — the firm's real asset — still cannot be searched as a whole.",
+      "A migration can become a lengthy metadata-entry project. Meanwhile the archive — the firm's real asset — still cannot be searched as a whole.",
     ],
     problems: [
       "Two matter-numbering schemes that do not map onto each other",
@@ -227,11 +232,11 @@ export const useCasesEn: UseCase[] = [
       },
       {
         title: "Normalise matters, clients and parties",
-        body: "One agent per block of matters proposes the mapping between naming schemes, merges duplicate client records and links each document to its proceeding, its client and the parties involved. Anything doubtful it asks about rather than resolving on its own.",
+        body: "One agent per block of matters proposes the mapping between naming schemes, proposes duplicate client records for review and links each document to its proceeding, its client and the parties involved. Anything doubtful it asks about rather than resolving on its own.",
       },
       {
         title: "Run conflict checks against the unified archive",
-        body: "With both portfolios in the same graph, the conflict check runs once and across the whole, including opposing parties buried in the body of a filing rather than recorded on the matter sheet.",
+        body: "With both authorised portfolios available together, the conflict check runs once and across the whole, including opposing parties buried in the body of a filing rather than recorded on the matter sheet.",
       },
       {
         title: "Leave a record of every filing decision",
@@ -239,9 +244,9 @@ export const useCasesEn: UseCase[] = [
       },
     ],
     outcomes: [
-      "A single archive, searchable from any of the offices",
+      "A shared archive, searchable subject to assigned access",
       "Deduplicated client and matter records, with the decisions justified",
-      "The conflict check run against the complete portfolio",
+      "Potential conflicts identified in the authorised material for legal review",
       "Material normalised and ready to load into the case-management platform",
       "An explicit inventory of what could not be recovered, so you can decide what to do with it",
     ],
@@ -258,10 +263,11 @@ export const useCasesEn: UseCase[] = [
       urlLabel: "sententia.studio",
       body: "Genia Ops handles the document archaeology: finding, relating and normalising what is scattered across inboxes and network drives. **SententIA** is the intelligent case-management platform where that material then lives and gets worked day to day: centralised matters, hearing transcription, key-fact extraction, case-law search and assisted drafting.",
       bullets: [
+        "Integration scope and handoff requirements must be confirmed before implementation.",
         "Genia Ops delivers the matter already unified; SententIA manages it through the proceeding",
         "The parties, dates and amounts the agent extracts enter as case facts, not loose text",
         "Hearing recordings indexed by Genia Ops complement SententIA's intelligent transcription",
-        "For firms with strict confidentiality requirements, SententIA also offers an on-premise deployment",
+        "Confirm deployment and confidentiality requirements with SententIA before transferring material",
       ],
     },
   },
@@ -277,6 +283,7 @@ export const useCasesEn: UseCase[] = [
       "How Genia Ops unifies syllabuses, records and teaching material across the schools of an education group and hands it normalised to Kompa so teachers can use it in class.",
     who: "Education groups with several schools, teaching cooperatives, and owners integrating a new school into their network.",
     scenario: [
+      "Illustrative scenario, not a customer result. Outputs depend on authorised sources, document quality and human validation.",
       "An education group with four schools wants to operate as one. Each school arrives with its own history: syllabuses in the head of studies' Drive, assessment records as signed PDFs, classroom material scattered across teachers' personal accounts and an annual report written each year by whoever is available.",
       "On paper they share an educational project. In practice the same first-year subject is taught from three different syllabuses, and no leadership team can answer with data what is actually being taught across the network.",
       "When a teacher moves between schools they start from zero: their material does not travel with them, and the destination school's material is not anywhere they can find it. When an inspection or a certification renewal comes round, somebody spends weeks rebuilding by hand documentation that already exists.",
@@ -292,7 +299,7 @@ export const useCasesEn: UseCase[] = [
     approach: [
       {
         title: "Bring together the academic archive of all four schools",
-        body: "Genia Ops connects each school's Drive, OneDrive and inboxes and indexes syllabuses, records, reports and classroom material into a single graph — while each school keeps seeing only its own until leadership decides otherwise.",
+        body: "Genia Ops connects each school's Drive, OneDrive and inboxes and indexes syllabuses, records, reports and classroom material as reusable academic knowledge, with source access assigned to each objective.",
       },
       {
         title: "Map the real curriculum, not the declared one",
@@ -308,7 +315,7 @@ export const useCasesEn: UseCase[] = [
       },
     ],
     outcomes: [
-      "A single academic archive, searchable by every school in the group",
+      "A shared academic archive, searchable subject to assigned access",
       "The real map of what is taught in each school, with divergences flagged",
       "Classroom material rescued from personal accounts and attributed to its subject",
       "Inspection and certification paperwork gathered rather than rebuilt",
@@ -327,6 +334,7 @@ export const useCasesEn: UseCase[] = [
       urlLabel: "kompa.es",
       body: "Genia Ops puts the group's archive in order; **Kompa** is the platform where that material turns into a lesson. Kompa centralises subjects and content, generates multiple-choice exams with AI from the material itself, and runs Live Mode, projecting slides with a QR code so students answer questions from their phones.",
       bullets: [
+        "Integration scope and handoff requirements must be confirmed before implementation.",
         "The material Genia Ops rescues and classifies enters Kompa already assigned to its subject",
         "Kompa's AI exams are generated from the school's real content, not a generic syllabus",
         "Kompa's school mode gives leadership aggregated metrics across the whole school",

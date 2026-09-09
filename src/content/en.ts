@@ -4,28 +4,26 @@ import type { Dict } from "./types";
 
 export const en: Dict = {
   lang: "en",
-  tagline: "AI agents that plan and execute on your own data",
-  description:
-    "Genia Ops is an AI-agent project platform. Connect your email, documents, cloud files and repositories, organise them into a private knowledge graph, and let AI agents plan, propose and carry out the work under your supervision.",
+  tagline: "Enterprise AI. Operational control.",
+
+  description: "Genia Ops orchestrates people and AI agents to plan and execute operations with governance, reusable enterprise knowledge and human oversight. Closed release, by invitation only.",
   keywords: [
-    "Genia Ops",
-    "AI agents",
-    "autonomous agents",
-    "AI project management",
-    "knowledge graph",
-    "business process automation",
-    "AI for business",
-    "connect Gmail and Outlook to AI",
-    "AI invoice extraction",
-    "AI assistant for documents",
-  ],
+  "Genia Ops",
+  "enterprise AI",
+  "AI-native businesses",
+  "AI governance",
+  "human-AI orchestration",
+  "AI-AI orchestration",
+  "enterprise knowledge"
+],
 
   nav: [
+    { href: "#for-business", label: "For your business" },
     { href: "#product", label: "Product" },
     { href: "#how-it-works", label: "How it works" },
     { href: "/use-cases", label: "Use cases" },
     { href: "#integrations", label: "Integrations" },
-    { href: "#security", label: "Security" },
+    { href: "#security", label: "Governance" },
     { href: "#faq", label: "FAQ" },
   ],
   navAria: "Primary",
@@ -38,35 +36,102 @@ export const en: Dict = {
   languageLabel: "Language",
 
   hero: {
-    badge: "Invite-only access",
-    titleTop: "AI agents that work on",
-    titleAccent: "your own data",
-    lede: "connects your email, your documents, your files and your repositories, organises them into a private knowledge graph and puts AI agents to work planning and executing — with every step visible and under your supervision.",
-    ctaSecondary: "See the product",
-    note: "No credit card. Connect only the sources you want and revoke them whenever you want.",
-    shotAlt:
-      "Genia Ops: an open project with its plan of objectives on the left and the conversation with the agent in the centre",
-  },
+  "badge": "Closed release · Invitation only",
+  "titleTop": "Build an AI-native",
+  "titleAccent": "business. Stay in control.",
+  "lede": "brings people and AI agents together around business objectives. Coordinate execution, govern access and retain the knowledge behind the work — so productivity becomes an organisational asset, not a one-off answer.",
+  "ctaSecondary": "Explore the platform",
+  "note": "Closed release. Request an invitation at accounts@geniaops.com.",
+  "shotAlt": "Genia Ops project with objectives, agent conversation and execution progress"
+},
 
   stats: [
-    { value: "∞", label: "connectable data sources", emphasis: true },
-    { value: "ONE", label: "knowledge graph per organisation" },
-    { value: "ALL", label: "agent actions, auditable" },
-  ],
+  {
+    "value": "Human + AI",
+    "label": "shared objectives",
+    "emphasis": true
+  },
+  {
+    "value": "AI + AI",
+    "label": "coordinated execution"
+  },
+  {
+    "value": "Knowledge",
+    "label": "retained by the business"
+  }
+],
 
   whatIs: {
-    title: `What is ${SITE.name}?`,
-    paragraphs: [
-      `**${SITE.name}** is a web application for project management assisted by artificial-intelligence agents, built by ${SITE.company}. It is designed for teams that accumulate scattered information — emails, invoices, contracts, documents, repositories — and need to turn it into finished work.`,
-      `You connect your information sources through OAuth 2.0 authorisation. ${SITE.name} indexes that content into a private knowledge graph and enables two things: asking questions in natural language across all of it, and handing work to AI agents that use it as context to plan and carry out concrete tasks.`,
-      "Every bit of the agent's work is visible and reversible: each source consulted and each action taken is recorded, and you can step in at any moment. You can read how we handle information in our [Privacy Policy](/privacy) and the conditions of use in the [Terms of Service](/terms).",
-    ],
-  },
+  "title": "What is Genia Ops?",
+  "paragraphs": [
+    "**Genia Ops** is an enterprise AI platform for businesses that want AI embedded in how they operate. Genia refers to generative AI and is the platform name; Ops means operations.",
+    "People set direction and make decisions. Agents plan, execute and coordinate dependent work using authorised business context. Human-AI and AI-AI orchestration belong in the same operating model.",
+    "Plans, conversations and deliverables remain reusable context for future work, subject to access and retention settings. Read our [Privacy Policy](/privacy) and [Terms of Service](/terms)."
+  ]
+},
+
+  audiences: {
+  "eyebrow": "For your business",
+  "title": "One operating model. Different stages.",
+  "body": "Illustrative examples, not customer results. Start with an objective that matters and define who owns the decision.",
+  "items": [
+    {
+      "id": "startups",
+      "label": "Startups",
+      "title": "Build AI-native from day one",
+      "body": "Give a focused team a shared way to delegate, review and reuse work.",
+      "example": "Example: prepare a customer onboarding plan from sales notes, agreements and product documentation.",
+      "outcome": "Intended outcome: a reviewable plan and reusable onboarding context."
+    },
+    {
+      "id": "scaleups",
+      "label": "Scaleups",
+      "title": "Scale execution, not fragmentation",
+      "body": "Coordinate work across growing teams without losing the decisions behind it.",
+      "example": "Example: agents gather vendor spend and renewal terms; finance and operations review the proposed actions.",
+      "outcome": "Intended outcome: a shared renewal plan with documented decisions."
+    },
+    {
+      "id": "enterprises",
+      "label": "Enterprises",
+      "title": "Bring AI into governed operations",
+      "body": "Align teams and agents around scoped access, accountable decisions and enterprise knowledge.",
+      "example": "Example: coordinate document review across business units, with legal teams validating findings.",
+      "outcome": "Intended outcome: reviewable findings and retained context for subsequent work."
+    }
+  ]
+},
+
+  difference: {
+  "eyebrow": "The difference",
+  "title": "Orchestrate the work, not just the workflow.",
+  "body": "Automation orchestrators connect triggers and actions. Genia Ops focuses on coordinating objectives, people, agents and business context. The approaches can complement each other.",
+  "items": [
+    {
+      "title": "Objectives before sequences",
+      "body": "Describe the result, review the plan and adapt execution as the work develops."
+    },
+    {
+      "title": "People and agents, together",
+      "body": "People direct and validate; agents coordinate tasks and hand over results according to dependencies."
+    },
+    {
+      "title": "Context beyond a single run",
+      "body": "Reuse prior plans, decisions and deliverables instead of treating each task as a fresh start."
+    }
+  ]
+},
+
+  ownership: {
+  "eyebrow": "Retained productivity",
+  "title": "The work ends. The knowledge stays.",
+  "body": "Your business retains the working context: objectives, conversations, decisions and deliverables that authorised teams and agents can reuse. Productivity is not only completing a task; it is making the next one start with more knowledge. Retention and deletion remain subject to your settings and our Privacy Policy."
+},
 
   product: {
     eyebrow: "Product",
     title: "From the objective to the finished work, without losing the thread",
-    body: "Four pieces that work together: a planner, agents that execute, your data as context, and traceability of everything that happens.",
+    body: "Planning, coordinated agents, authorised context and usage visibility — in one place.",
     features: [
       {
         id: "planning",
@@ -89,7 +154,7 @@ export const en: Dict = {
         title: "Agents that work in plain sight, not in a black box.",
         body: "Each agent works in its own isolated environment and narrates what it does: which source it queries, which document it opens, which conclusion it draws. You can interrupt it, correct it or ask it to change course at any point.",
         bullets: [
-          "Every tool call is recorded and visible",
+          "Review tool activity in the conversation",
           "Interrupt or redirect the agent mid-task",
           "The agent asks when it needs a decision from you",
         ],
@@ -102,7 +167,7 @@ export const en: Dict = {
         id: "data",
         eyebrow: "Your data",
         title: "Connect the sources where your information already lives.",
-        body: "Email, documents, cloud files, repositories and video. Genia Ops indexes them into a private knowledge graph where everything is related, so a single question can cross an email with its attached invoice and the bank movement that backs it.",
+        body: "Bring email, documents, files, repositories and recordings into reusable business context. Agents work with the sources assigned to their objective.",
         bullets: [
           "OAuth 2.0 authorisation: we never store your passwords",
           "Incremental, schedulable sync per account",
@@ -117,11 +182,11 @@ export const en: Dict = {
         id: "control",
         eyebrow: "Control and cost",
         title: "You know what each agent did and what it cost.",
-        body: "Usage per project, per objective and per model, in real time. No end-of-month surprises and no need to take the agent's word for what it did.",
+        body: "Review model usage alongside project activity to understand the resources used and the work produced.",
         bullets: [
           "Cost and tokens broken down by project and model",
-          "Full action log for auditing",
-          "Limits and budgets per team",
+          "Tool activity available for review",
+          "Usage visibility for operational decisions",
         ],
         shot: "usage",
         shotAlt:
@@ -142,8 +207,8 @@ export const en: Dict = {
       },
       {
         n: "02",
-        title: "It is organised into a graph",
-        body: "Genia Ops indexes the content into your organisation's private knowledge graph, where emails, documents and files are related and queryable.",
+        title: "Build reusable business context",
+        body: "Genia Ops makes authorised information available as context for questions, plans and execution.",
       },
       {
         n: "03",
@@ -175,7 +240,7 @@ export const en: Dict = {
       },
       {
         name: "Dropbox",
-        detail: "Folders and files, synced both ways.",
+        detail: "Connected folders and files.",
         icon: SOURCE_ICONS.dropbox,
       },
       {
@@ -207,9 +272,9 @@ export const en: Dict = {
   },
 
   security: {
-    eyebrow: "Security and privacy",
-    title: "Giving access to your data demands guarantees",
-    body: "These are ours. The full legal detail is in the Privacy Policy.",
+    eyebrow: "Governance, security and privacy",
+    title: "Govern access. Keep people accountable.",
+    body: "Define which sources each objective can use, review activity and retain human responsibility for consequential decisions. Read the Privacy Policy for data handling details.",
     items: [
       {
         title: "OAuth 2.0, never your passwords",
@@ -217,22 +282,22 @@ export const en: Dict = {
       },
       {
         title: "Least privilege, objective by objective",
-        body: "Data access is granted objective by objective, not globally. An agent reviewing invoices does not see your code repository.",
+        body: "Assign data sources to each objective. Limit an invoice review to the information it needs rather than granting unrelated repository access.",
       },
       {
         title: "Execution isolation",
-        body: "Each agent runs in an isolated container with no route to the internet except through a controlled proxy that logs every call.",
+        body: "Agent execution uses isolated environments. Data access is scoped to the work you authorise.",
       },
       {
-        title: "Full traceability",
-        body: "Every action is recorded: which source it queried, which document it read and what it produced. You can reconstruct any decision.",
+        title: "Reviewable activity",
+        body: "Review tool activity, conversations and outputs to understand the work and validate its conclusions.",
       },
       {
         title: "Your data does not train models",
-        body: "Your content is processed to provide the service and nothing else. We do not sell it or hand it to third parties for advertising.",
+        body: "We do not use your content to train models, sell it or share it for advertising. Processing and service-provider protections are described in the Privacy Policy.",
       },
       {
-        title: "Immediate revocation",
+        title: "Revocable access",
         body: "You can disconnect a source or request deletion of your data at any time, from the product or by writing to us.",
       },
     ],
@@ -241,8 +306,8 @@ export const en: Dict = {
 
   useCases: {
     eyebrow: "Use cases",
-    title: "What teams use it for",
-    body: "Six real scenarios told end to end: what hurts, what Genia Ops does about it and what is finished when it stops.",
+    title: "Where to put AI to work",
+    body: "Six illustrative scenarios: the business problem, a supervised approach and intended outputs. These are not customer results or performance guarantees.",
     readMore: "Read the full case",
     indexTitle: "Use cases",
     indexMetaDescription:
@@ -259,7 +324,7 @@ export const en: Dict = {
     items: [
       {
         q: "What exactly is Genia Ops?",
-        a: "Genia Ops is a web platform for project management assisted by artificial-intelligence agents. It connects the sources where your information already lives (email, documents, cloud files, repositories), organises them into a private knowledge graph and lets AI agents plan and carry out work on them, always under your supervision.",
+        a: "Genia Ops is an enterprise AI platform for AI-native operations. Genia refers to generative AI and names the platform; Ops means operations. It coordinates people and AI agents around objectives, authorised knowledge and supervised execution.",
       },
       {
         q: "What data of mine does it need, and what for?",
@@ -271,28 +336,28 @@ export const en: Dict = {
       },
       {
         q: "Can an agent do something without my approval?",
-        a: "Agents read and propose autonomously, but every action is recorded and visible in the chat, and you can interrupt them mid-task to redirect them. Data access is also granted objective by objective: an agent only sees the sources you assigned to it.",
+        a: "Agents can use enabled tools within the access you grant; not every action requires a separate approval. Review the task and permissions before execution, monitor activity and interrupt or redirect work when needed. Validate results before relying on them.",
       },
       {
         q: "Does it integrate with the tools we already use?",
-        a: "Yes. Beyond the standard data sources, Genia Ops connects with sector platforms such as SententIA for law firms or Kompa for schools, so the work the agent produces lands in the tool your team already works in.",
+        a: "Genia Ops works with connected business sources. The use cases also describe handoffs to SententIA for law firms and Kompa for schools; confirm the integration scope for your invitation.",
       },
       {
-        q: "Where is my data stored?",
-        a: `On infrastructure managed by ${SITE.company} inside the European Union. You can request deletion of your data at any time by writing to ${SITE.email}.`,
+        q: "How do we assess data handling?",
+        a: `Read the Privacy Policy for processing, retention and international transfers. Contact ${SITE.email} to discuss deployment requirements before connecting sensitive information.`,
       },
       {
         q: "How do I get access?",
-        a: `Genia Ops is invite-only while we complete the general rollout. Write to us at ${SITE.email} with a short description of your use case and we will give you access.`,
+        a: `Genia Ops is in closed release, by invitation only. Write to ${SITE.email} with your business context to request an invitation. Access is not automatic.`,
       },
     ],
   },
 
   cta: {
-    title: "Put your data to work",
-    body: `${SITE.name} is invite-only. Tell us your use case and we will give you access.`,
-    secondary: "Talk to us",
-  },
+  "title": "Make AI part of how you operate.",
+  "body": "Genia Ops is in closed release, by invitation only. Tell us your business context at accounts@geniaops.com to request an invitation.",
+  "secondary": "Contact us"
+},
 
   caseDetail: {
     who: "Who it is for",
@@ -303,16 +368,16 @@ export const en: Dict = {
     sourcesUsed: "Sources in play",
     integration: "Integration",
     ctaTitle: "Does this sound familiar?",
-    ctaBody: "Tell us how you work today and we will show you how it looks with Genia Ops.",
+    ctaBody: "Closed release, by invitation only. Describe your use case at accounts@geniaops.com to request an invitation.",
   },
 
   footer: {
-    blurb: `${SITE.name} connects your information sources, organises them into a private knowledge graph and puts AI agents to work planning and executing under your supervision.`,
+    blurb: "Genia Ops orchestrates people and AI agents to plan and execute operations with governance, reusable enterprise knowledge and human oversight. Closed release, by invitation only.",
     product: "Product",
     legal: "Legal and contact",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
-    rights: `${SITE.name} is a product of ${SITE.company}.`,
+    rights: "Closed release. By invitation only.",
     madeIn: "Made in Spain.",
   },
 

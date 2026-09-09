@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 import type { LegalDoc } from "./types";
 
-const UPDATED = "27 de julio de 2026";
+const UPDATED = "9 de septiembre de 2026";
 
 export const privacyEs: LegalDoc = {
   title: "Política de Privacidad",
@@ -10,15 +10,15 @@ export const privacyEs: LegalDoc = {
   updated: UPDATED,
   blocks: [
     {
-      p: `Esta Política de Privacidad describe cómo **${SITE.company}** («nosotros») trata la información personal en relación con la aplicación **${SITE.name}** (el «Servicio»), accesible en [${SITE.url}](${SITE.url}).`,
+      p: `Esta Política de Privacidad describe el tratamiento de información personal en relación con la aplicación **${SITE.name}** (el «Servicio»), accesible en [${SITE.url}](${SITE.url}).`,
     },
     {
-      p: `${SITE.name} es una plataforma de gestión de proyectos con agentes de inteligencia artificial. El Servicio se conecta, con tu autorización expresa, a las fuentes de datos que tú elijas (por ejemplo, tu cuenta de correo o tu almacenamiento en la nube), organiza ese contenido en un grafo de conocimiento privado y permite que agentes de IA te ayuden a planificar y ejecutar trabajo sobre esa información.`,
+      p: `${SITE.name} es una plataforma de IA empresarial para coordinar personas y agentes de IA. Con tu autorización expresa, el Servicio conecta las fuentes de datos que elijas, pone esa información a disposición del trabajo como contexto empresarial y te ayuda a planificar y ejecutar bajo supervisión humana.`,
     },
 
-    { h2: "1. Responsable del tratamiento" },
+    { h2: "1. Contacto de privacidad" },
     {
-      p: `**${SITE.company}**. Correo de contacto: [${SITE.email}](mailto:${SITE.email}).`,
+      p: `Correo de contacto para privacidad: [${SITE.email}](mailto:${SITE.email}).`,
     },
     {
       p: "Para cualquier cuestión relativa a esta política o al ejercicio de tus derechos, puedes escribirnos a la dirección anterior.",
@@ -64,12 +64,12 @@ export const privacyEs: LegalDoc = {
       ul: [
         "**`userinfo.email`** y **`userinfo.profile`**: para identificarte, crear tu cuenta y mostrar tu perfil dentro del Servicio.",
         "**`gmail.readonly`**: para leer e indexar tus correos y adjuntos, de modo que los agentes puedan buscar en ellos y utilizarlos como contexto en las tareas que les encargas.",
-        "**`gmail.modify`**: para realizar, a petición tuya, acciones de organización sobre tu buzón, como marcar mensajes como leídos o aplicar etiquetas. No utilizamos este permiso para enviar correos en tu nombre sin tu instrucción explícita ni para eliminar mensajes de forma automática.",
+        "**`gmail.modify`**: para realizar, a petición tuya, acciones de organización sobre tu buzón, como marcar mensajes como leídos o aplicar etiquetas. Este permiso también puede permitir el envío de mensajes; no enviamos correos en tu nombre sin tu instrucción explícita ni eliminamos mensajes de forma automática.",
       ],
     },
     { h3: "3.1 Uso Limitado (Google API Services User Data Policy)" },
     {
-      p: `El uso y la transferencia por parte de ${SITE.name} de la información recibida de las APIs de Google se ajustará a la [Política de Datos de Usuario de los Servicios de API de Google](https://developers.google.com/terms/api-services-user-data-policy), incluidos sus requisitos de **Uso Limitado**. En concreto:`,
+      p: `El uso y la transferencia por parte de ${SITE.name} de la información recibida de las APIs de Google se ajusta a la [Política de Datos de Usuario de los Servicios de API de Google](https://developers.google.com/terms/api-services-user-data-policy), incluidos sus requisitos de **Uso Limitado**. En concreto:`,
     },
     {
       ul: [
@@ -170,16 +170,16 @@ export const privacyEs: LegalDoc = {
 export const termsEs: LegalDoc = {
   title: "Términos del Servicio",
   description:
-    "Condiciones de uso de Genia Ops, la plataforma de gestión de proyectos con agentes de IA de ZC Tech Partners.",
+    "Condiciones de uso de Genia Ops, la plataforma de IA empresarial para operaciones. Versión cerrada, solo por invitación.",
   updated: UPDATED,
   blocks: [
     {
-      p: `Estos Términos regulan el acceso y uso de **${SITE.name}** (el «Servicio»), ofrecido por **${SITE.company}**. Al utilizar el Servicio aceptas estos Términos.`,
+      p: `Estos Términos regulan el acceso y uso de **${SITE.name}** (el «Servicio»). Al utilizar el Servicio aceptas estos Términos.`,
     },
 
     { h2: "1. Descripción del Servicio" },
     {
-      p: `${SITE.name} es una plataforma de gestión de proyectos que utiliza agentes de inteligencia artificial para analizar la información de las fuentes de datos que el usuario conecta y ayudarle a planificar y ejecutar trabajo. El Servicio se presta actualmente por invitación.`,
+      p: `${SITE.name} coordina personas y agentes de IA para analizar información empresarial autorizada, planificar objetivos y ejecutar tareas. El Servicio está en versión cerrada, solo por invitación. Puedes solicitar una invitación en ${SITE.email}; la solicitud no garantiza el acceso.`,
     },
 
     { h2: "2. Cuentas y acceso" },
@@ -215,7 +215,7 @@ export const termsEs: LegalDoc = {
 
     { h2: "6. Propiedad intelectual" },
     {
-      p: `El Servicio, su software, su diseño y sus marcas pertenecen a ${SITE.company}. Los contenidos que aportas y los resultados generados a partir de ellos siguen siendo tuyos; nos concedes únicamente la licencia necesaria para operar el Servicio y prestarte sus funciones.`,
+      p: `Los derechos sobre el Servicio, su software, diseño y marcas corresponden a sus respectivos titulares. Conservas tus derechos sobre el contenido que aportas. No reclamamos la propiedad de tus resultados generados; los derechos sobre ellos están sujetos a la legislación aplicable y a los derechos de terceros. Concedes únicamente la licencia necesaria para operar el Servicio y prestar sus funciones.`,
     },
 
     { h2: "7. Disponibilidad y modificaciones" },
@@ -225,7 +225,7 @@ export const termsEs: LegalDoc = {
 
     { h2: "8. Limitación de responsabilidad" },
     {
-      p: `En la máxima medida permitida por la ley, ${SITE.company} no será responsable de daños indirectos, lucro cesante ni pérdida de datos derivados del uso del Servicio. Nada en estos Términos excluye la responsabilidad que no pueda excluirse legalmente.`,
+      p: `En la máxima medida permitida por la ley, no seremos responsables de daños indirectos, lucro cesante ni pérdida de datos derivados del uso del Servicio. Nada en estos Términos excluye la responsabilidad que no pueda excluirse legalmente.`,
     },
 
     { h2: "9. Terminación" },

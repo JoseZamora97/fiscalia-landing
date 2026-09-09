@@ -1,44 +1,32 @@
-# Genia Ops — Landing
+# Genia Ops — Enterprise AI
 
-Landing page pública de **Genia Ops**, la plataforma de gestión de proyectos con
-agentes de IA de ZC Tech Partners.
+Public site for Genia Ops: enterprise AI, governance, human–AI and AI–AI orchestration, and AI-native businesses. https://geniaops.com
 
-Publicada en <https://geniaops.com>.
+Closed release, invitation only. Contact: accounts@geniaops.com. No pricing is published.
 
-## Propósito
+## Develop
 
-Además de presentar el producto, este sitio cubre los requisitos de la
-verificación de Google Cloud / pantalla de consentimiento OAuth:
+Next.js 16 App Router, React 19, Tailwind CSS 4, TypeScript.
 
-- Página principal pública y accesible, **sin muro de acceso**.
-- El nombre de la aplicación (**Genia Ops**) coincide con el de la pantalla de
-  consentimiento OAuth.
-- La página principal explica el propósito de la aplicación.
-- La página principal enlaza de forma visible a la política de privacidad
-  (cabecera, cuerpo y pie).
-- `/privacy` responde y contiene la divulgación de **Uso Limitado** exigida por
-  la Google API Services User Data Policy para los scopes restringidos de Gmail.
-- `/terms` con las condiciones del servicio.
-
-## Stack
-
-- Next.js 15 (App Router)
-- React 19
-- Tailwind CSS v4
-- Desplegado en Vercel
-
-## Desarrollo
-
-```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run build   # build de producción
+```sh
+npm ci
+npm run dev
+npm run build
+npm run start
+npm run typecheck
 ```
 
-## Rutas
+## Content and routes
 
-| Ruta       | Descripción                        |
-|------------|------------------------------------|
-| `/`        | Página principal                   |
-| `/privacy` | Política de Privacidad             |
-| `/terms`   | Términos del Servicio              |
+- English: `/`, `/use-cases`, `/use-cases/[slug]`, `/privacy`, `/terms`.
+- Spanish: `/es`, `/es/casos-de-uso`, `/es/casos-de-uso/[slug]`, `/es/privacy`, `/es/terms`.
+- Content dictionaries live in `src/content`; both locales have the same sections.
+- Theme selection persists locally; the first visit follows the device preference.
+- Hero sculpture uses CSS 3D, respects reduced motion, and requires no WebGL or third-party scripts.
+- Privacy includes the Google API Services User Data Policy Limited Use disclosure. Public legal links remain accessible without authentication.
+
+## Deployment
+
+GitHub repository: `JoseZamora97/fiscalia-landing`. Vercel project: `geniaops-landing`; production branch: `main`.
+
+Build and verify both locales, both themes, mobile navigation, legal pages and images before promoting. Use credentials injected by name from the project vault; never commit tokens.

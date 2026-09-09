@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 import type { LegalDoc } from "./types";
 
-const UPDATED = "27 July 2026";
+const UPDATED = "9 September 2026";
 
 export const privacyEn: LegalDoc = {
   title: "Privacy Policy",
@@ -10,14 +10,14 @@ export const privacyEn: LegalDoc = {
   updated: UPDATED,
   blocks: [
     {
-      p: `This Privacy Policy describes how **${SITE.company}** (“we”) handles personal information in connection with the **${SITE.name}** application (the “Service”), available at [${SITE.url}](${SITE.url}).`,
+      p: `This Privacy Policy describes the handling of personal information in connection with the **${SITE.name}** application (the “Service”), available at [${SITE.url}](${SITE.url}).`,
     },
     {
-      p: `${SITE.name} is a project management platform with artificial-intelligence agents. With your express authorisation, the Service connects to the data sources you choose (for example, your email account or your cloud storage), organises that content into a private knowledge graph and lets AI agents help you plan and carry out work on that information.`,
+      p: `${SITE.name} is an enterprise AI platform for coordinating people and AI agents. With your express authorisation, the Service connects to the data sources you choose, makes that information available as business context and helps you plan and execute work under human supervision.`,
     },
 
-    { h2: "1. Data controller" },
-    { p: `**${SITE.company}**. Contact email: [${SITE.email}](mailto:${SITE.email}).` },
+    { h2: "1. Privacy contact" },
+    { p: `Privacy contact email: [${SITE.email}](mailto:${SITE.email}).` },
     {
       p: "For any question about this policy or about exercising your rights, you can write to the address above.",
     },
@@ -62,7 +62,7 @@ export const privacyEn: LegalDoc = {
       ul: [
         "**`userinfo.email`** and **`userinfo.profile`**: to identify you, create your account and show your profile inside the Service.",
         "**`gmail.readonly`**: to read and index your emails and attachments, so agents can search them and use them as context for the tasks you assign.",
-        "**`gmail.modify`**: to perform, at your request, organising actions on your mailbox, such as marking messages as read or applying labels. We do not use this permission to send email on your behalf without your explicit instruction, nor to delete messages automatically.",
+        "**`gmail.modify`**: to perform, at your request, organising actions on your mailbox, such as marking messages as read or applying labels. This scope can also permit sending messages; we do not send email on your behalf without your explicit instruction or delete messages automatically.",
       ],
     },
     { h3: "3.1 Limited Use (Google API Services User Data Policy)" },
@@ -168,16 +168,16 @@ export const privacyEn: LegalDoc = {
 export const termsEn: LegalDoc = {
   title: "Terms of Service",
   description:
-    "Conditions of use for Genia Ops, the AI-agent project management platform by ZC Tech Partners.",
+    "Conditions of use for Genia Ops, the enterprise AI operations platform. Closed release, by invitation only.",
   updated: UPDATED,
   blocks: [
     {
-      p: `These Terms govern access to and use of **${SITE.name}** (the “Service”), offered by **${SITE.company}**. By using the Service you accept these Terms.`,
+      p: `These Terms govern access to and use of **${SITE.name}** (the “Service”). By using the Service you accept these Terms.`,
     },
 
     { h2: "1. Description of the Service" },
     {
-      p: `${SITE.name} is a project management platform that uses artificial-intelligence agents to analyse the information in the data sources the user connects and to help plan and carry out work. The Service is currently provided by invitation.`,
+      p: `${SITE.name} coordinates people and AI agents to analyse authorised business information, plan objectives and execute tasks. The Service is in closed release, by invitation only. Requests for an invitation can be sent to ${SITE.email}; a request does not guarantee access.`,
     },
 
     { h2: "2. Accounts and access" },
@@ -213,7 +213,7 @@ export const termsEn: LegalDoc = {
 
     { h2: "6. Intellectual property" },
     {
-      p: `The Service, its software, its design and its trademarks belong to ${SITE.company}. The content you contribute and the results generated from it remain yours; you grant us only the licence needed to operate the Service and provide its features to you.`,
+      p: `Rights in the Service, its software, design and trademarks remain with their respective holders. You retain your rights in the content you contribute. We do not claim ownership of your generated results; any rights in those results are subject to applicable law and third-party rights. You grant only the licence needed to operate the Service and provide its features.`,
     },
 
     { h2: "7. Availability and changes" },
@@ -223,7 +223,7 @@ export const termsEn: LegalDoc = {
 
     { h2: "8. Limitation of liability" },
     {
-      p: `To the maximum extent permitted by law, ${SITE.company} will not be liable for indirect damages, loss of profit or loss of data arising from use of the Service. Nothing in these Terms excludes liability that cannot lawfully be excluded.`,
+      p: `To the maximum extent permitted by law, we will not be liable for indirect damages, loss of profit or loss of data arising from use of the Service. Nothing in these Terms excludes liability that cannot lawfully be excluded.`,
     },
 
     { h2: "9. Termination" },

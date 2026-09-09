@@ -25,7 +25,7 @@ export function ogImage({
           padding: "76px 72px",
           background: "#16181c",
           backgroundImage:
-            "radial-gradient(700px 460px at 6% 0%, rgba(255,92,92,0.22), transparent 62%), radial-gradient(620px 420px at 96% 6%, rgba(91,141,255,0.18), transparent 62%), radial-gradient(520px 360px at 55% 100%, rgba(192,132,252,0.14), transparent 62%)",
+            "radial-gradient(700px 600px at 95% 30%, rgba(255,140,112,0.20), transparent 72%)",
           color: "#e8e9ea",
           fontFamily: "sans-serif",
         }}
