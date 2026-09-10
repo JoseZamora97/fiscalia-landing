@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeroScene } from "@/components/hero-scene";
+import { audiences, audiencePath, variants, type Audience } from "@/content/variants";
 import { dict, useCases } from "@/content";
 import { localePath, type Lang } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
@@ -8,9 +9,9 @@ import { Shot } from "@/components/shot";
 import { mailto } from "@/components/shell";
 import { Arrow, Check, SectionHead } from "@/components/ui";
 
-function JsonLd({ lang }: { lang: Lang }) {
+function JsonLd({ lang, path }: { lang: Lang; path: string }) {
   const d = dict(lang);
-  const url = `${SITE.url}${localePath(lang, "/")}`.replace(/\/$/, "") || SITE.url;
+  const url = `${SITE.url}${localePath(lang, path)}`.replace(/\/$/, "") || SITE.url;
 
   const data = {
     "@context": "https://schema.org",
@@ -62,29 +63,35 @@ function JsonLd({ lang }: { lang: Lang }) {
   );
 }
 
-export function Home({ lang }: { lang: Lang }) {
+export function Home({ lang, audience = "enterprises", path = "/" }: { lang: Lang; audience?: Audience; path?: string }) {
   const d = dict(lang);
+  const v = variants[lang][audience];
   const cases = useCases(lang);
 
   return (
     <>
-      <JsonLd lang={lang} />
+      <JsonLd lang={lang} path={path} />
 
+      <div className="audience-experience" data-audience={audience}>
+      <nav className="variant-nav" aria-label={lang === "es" ? "Elige tu perspectiva" : "Choose your perspective"}>
+        <span>{lang === "es" ? "UNA PLATAFORMA. TU PERSPECTIVA." : "ONE PLATFORM. YOUR PERSPECTIVE."}</span>
+        <div>{audiences.map(a => <Link key={a} href={audiencePath(lang, a)} aria-current={a === audience ? "page" : undefined}><span className="variant-number">0{audiences.indexOf(a) + 1}</span>{variants[lang][a].label}<Arrow /></Link>)}</div>
+      </nav>
       <section className="enterprise-hero">
-        <HeroScene />
         <div className="hero-inner">
           <div className="hero-copy">
-            <span className="badge badge-accent"><span className="release-dot" />{d.hero.badge}</span>
-            <h1>{d.hero.titleTop}<br /><span>{d.hero.titleAccent}</span></h1>
-            <p className="hero-lede"><Rich>{`**${SITE.name}** ${d.hero.lede}`}</Rich></p>
+            <p className="hero-kicker">{v.kicker}</p>
+            <h1>{v.title}<br /><span>{v.accent}</span></h1>
+            <p className="hero-lede">{v.body}</p>
             <div className="hero-actions">
               <a href={mailto(lang)} className="btn btn-primary">{d.requestAccess}<Arrow /></a>
-              <a href="#product" className="hero-text-link">{d.hero.ctaSecondary}<span aria-hidden="true"> ↘</span></a>
+              <a href={`#${v.target}`} className="hero-text-link">{v.link}<span aria-hidden="true"> ↘</span></a>
             </div>
-            <p className="hero-note">{d.hero.note}</p>
+            <p className="hero-note"><span className="release-dot" />{d.hero.badge}</p>
           </div>
-          <div className="hero-caption" aria-hidden="true"><span>GENIA / OPS</span><span>{lang === "es" ? "INTELIGENCIA EN OPERACIÓN" : "INTELLIGENCE IN OPERATION"}</span></div>
+          <HeroScene lang={lang} audience={audience} />
         </div>
+        <div className="perspective-brief"><span>{v.role}</span><p>{v.focus}</p><span>GENIA / OPS</span></div>
         <div className="hero-product">
           <div className="product-caption"><span className="release-dot" />{lang === "es" ? "Un espacio. Personas, agentes y conocimiento." : "One workspace. People, agents and knowledge."}<span className="caption-index">01 / GENIA OS</span></div>
           <Shot name="project-detail" alt={d.hero.shotAlt} url="app.geniaops.com" priority />
@@ -103,6 +110,7 @@ export function Home({ lang }: { lang: Lang }) {
             <h3>{item.title}</h3><p>{item.body}</p>
             <div className="audience-example"><span className="eyebrow">{lang === "es" ? "UN EJEMPLO" : "IN PRACTICE"}</span><p>{item.example}</p></div>
             <p className="audience-outcome"><Arrow />{item.outcome}</p>
+            <Link className="audience-explore" href={audiencePath(lang, audiences[index])}>{lang === "es" ? "Ver esta perspectiva" : "Explore this perspective"}<Arrow /></Link>
           </article>)}
         </div>
       </section>
@@ -333,6 +341,7 @@ export function Home({ lang }: { lang: Lang }) {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }

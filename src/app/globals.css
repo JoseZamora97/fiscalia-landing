@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./variants.css";
 
 @custom-variant dark (&:where(.theme-dark, .theme-dark *));
 
@@ -403,20 +404,6 @@ body { overflow-x: clip; }
 .release-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-text); flex-shrink: 0; }
 .hero-caption { position: absolute; right: 32px; bottom: 70px; display: flex; flex-direction: column; gap: 5px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; color: var(--fg-muted); }
 .hero-caption span:first-child { color: var(--fg); }
-.hero-scene { position: absolute; inset: 0 0 auto; height: 780px; z-index: -1; pointer-events: none; overflow: hidden; perspective: 1100px; }
-.scene-glow { position: absolute; width: 950px; height: 900px; top: -220px; right: -220px; background: radial-gradient(ellipse, rgba(0,122,255,.16), rgba(129,178,255,.07) 45%, transparent 65%); }
-.orbital-sculpture { position: absolute; top: 90px; left: calc(50% + 180px); width: 430px; height: 430px; transform-style: preserve-3d; transform: rotateX(calc(-16deg + var(--pointer-y, 0deg))) rotateY(calc(-24deg + var(--pointer-x, 0deg))) rotateZ(-24deg); }
-.orbit { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(96,132,190,.25); box-shadow: 2px 2px 0 rgba(255,255,255,.55) inset, -3px -4px 12px rgba(58,92,151,.10) inset, 2px 7px 17px rgba(40,70,113,.06); background: linear-gradient(140deg, rgba(255,255,255,.23), transparent 42%, rgba(94,155,249,.08)); }
-.orbit-one { transform: rotateY(65deg); animation: orbit-turn 24s linear infinite; }
-.orbit-two { inset: 24px; transform: rotateX(64deg) rotateY(15deg); }
-.orbit-three { inset: 52px; transform: rotateY(-55deg) rotateX(25deg); }
-.orbit-four { inset: 80px; transform: rotateX(-60deg); }
-/* The core keeps the coral brand cameo, warm against the blue orbits. */
-.orbit-core { position: absolute; inset: 143px; border-radius: 50%; background: radial-gradient(circle at 29% 24%, #ffe8e0, #ff9d8e 29%, var(--brand-coral) 57%, #a83246 91%); box-shadow: -18px 24px 55px rgba(120,90,190,.22), 0 0 90px rgba(255,140,120,.14); }
-.orbit-satellite { position: absolute; height: 23px; width: 23px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #f2f7ff, #8ba6c8 60%, #4c6480); box-shadow: 0 4px 15px #6f88b540; }
-.satellite-one { top: 37px; left: 130px; }.satellite-two { right: 34px; bottom: 77px; height: 15px; width: 15px; }
-.theme-dark .orbit { border-color: rgba(148,190,243,.23); background: linear-gradient(140deg,rgba(255,255,255,.06),transparent 42%,rgba(113,166,249,.025)); box-shadow: 1px 1px 0 rgba(217,235,255,.16) inset, -3px -4px 10px #0003; }
-.theme-dark .scene-glow { opacity: .65; }.theme-dark .orbit-core { filter: saturate(.85); }
 .hero-product { max-width: 1136px; margin: 0 auto; padding: 0 24px; animation: enter-up 1000ms 120ms both; }
 .product-caption { display:flex; align-items:center; gap: 9px; color:var(--fg-muted); font-size:11px; padding:0 8px 15px; }
 .caption-index { margin-left:auto; font-family:var(--font-mono); font-size:9px; letter-spacing:.1em; }
@@ -439,7 +426,7 @@ body { overflow-x: clip; }
 .difference-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px; margin-top:48px; }.difference-grid article { border-top:1px solid var(--border); padding:27px 0; }.difference-grid h3 { font-size:21px; margin:15px 0 12px; font-weight:550; }.difference-grid p { color:var(--fg-muted); font-size:14px; line-height:1.8; }
 .invitation-card { border-radius:28px; border:1px solid var(--accent-border); background:radial-gradient(ellipse at 50% 130%,var(--accent-soft),transparent 70%),var(--bg-elev); }
 @keyframes enter-up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-@keyframes orbit-turn { from { transform:rotateY(65deg) rotateZ(0); } to { transform:rotateY(65deg) rotateZ(360deg); } }
+
 @media (max-width:1000px) { .orbital-sculpture { left:68%; opacity:.7; }.hero-copy { max-width:640px; }.hero-inner { padding-top:85px; }.audience-card { padding:22px; }.hero-caption { display:none; } }
 @media (max-width:700px) { .hero-inner { padding:68px 24px 54px; }.hero-copy h1 { font-size:clamp(43px,9.5vw,64px); }.hero-lede { font-size:15px; }.hero-scene { height:660px; }.orbital-sculpture { left:64%; top:8px; opacity:.22; transform:scale(.75) rotateX(-16deg) rotateY(-24deg); }.hero-actions { gap:20px; }.hero-product { padding-inline:18px; }.product-caption { font-size:9px; }.caption-index { display:none; }.principles-strip { margin:36px 18px 0; padding-bottom:30px; }.principles-strip dt { font-size:17px; }.principles-strip dd { font-size:10px; }.principles-strip > div { padding:0 8px; }.section-wrap { padding:70px 24px; }.audience-grid { grid-template-columns:1fr; }.audience-card { padding:28px; }.scale-art { float:right; width:90px; height:80px; margin-top:16px; }.audience-card h3 { margin-top:28px; }.audience-example { clear:both; }.ownership-grid { grid-template-columns:1fr; gap:22px; }.difference-grid { grid-template-columns:1fr; }.hero-product .shot-frame { border-radius:10px; } }
 @media (prefers-reduced-motion:reduce) { .hero-copy,.hero-product,.orbit { animation:none; }.orbital-sculpture { transform:rotateX(-16deg) rotateY(-24deg) rotateZ(-24deg); } }

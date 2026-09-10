@@ -13,13 +13,13 @@ export function mailto(lang: Lang) {
 }
 
 /** Resolves a nav entry (a hash or a canonical path) to a localized href. */
-function navHref(lang: Lang, href: string) {
+function navHref(lang: Lang, href: string, homePath: string) {
   return href.startsWith("#")
-    ? `${localePath(lang, "/")}${href}`
+    ? `${localePath(lang, homePath)}${href}`
     : localePath(lang, href);
 }
 
-function Header({ lang }: { lang: Lang }) {
+function Header({ lang, homePath }: { lang: Lang; homePath: string }) {
   const d = dict(lang);
 
   return (
@@ -33,7 +33,7 @@ function Header({ lang }: { lang: Lang }) {
           {d.nav.map((item) => (
             <Link
               key={item.href}
-              href={navHref(lang, item.href)}
+              href={navHref(lang, item.href, homePath)}
               className="text-[13.5px] font-medium text-fg-muted transition hover:text-fg"
             >
               {item.label}
@@ -47,13 +47,13 @@ function Header({ lang }: { lang: Lang }) {
         </div>
       </div>
       <nav aria-label={`${d.navAria} — ${lang === "es" ? "móvil" : "mobile"}`} className="mobile-nav lg:hidden">
-        {d.nav.map(item => <Link key={item.href} href={navHref(lang, item.href)}>{item.label}</Link>)}
+        {d.nav.map(item => <Link key={item.href} href={navHref(lang, item.href, homePath)}>{item.label}</Link>)}
       </nav>
     </header>
   );
 }
 
-function Footer({ lang }: { lang: Lang }) {
+function Footer({ lang, homePath }: { lang: Lang; homePath: string }) {
   const d = dict(lang);
 
   return (
@@ -72,7 +72,7 @@ function Footer({ lang }: { lang: Lang }) {
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-fg-muted">
               {d.nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={navHref(lang, item.href)} className="transition hover:text-fg">
+                  <Link href={navHref(lang, item.href, homePath)} className="transition hover:text-fg">
                     {item.label}
                   </Link>
                 </li>
@@ -116,9 +116,11 @@ function Footer({ lang }: { lang: Lang }) {
 export function Shell({
   lang,
   children,
+  homePath = "/",
 }: {
   lang: Lang;
   children: React.ReactNode;
+  homePath?: string;
 }) {
   const d = dict(lang);
 
@@ -130,11 +132,11 @@ export function Shell({
       >
         {d.skipToContent}
       </a>
-      <Header lang={lang} />
+      <Header lang={lang} homePath={homePath} />
       <main id="content" className="relative z-10">
         {children}
       </main>
-      <Footer lang={lang} />
+      <Footer lang={lang} homePath={homePath} />
     </div>
   );
 }

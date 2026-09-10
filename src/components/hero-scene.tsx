@@ -1,37 +1,20 @@
-"use client";
+import type { Audience } from "@/content/variants";
+import { variants } from "@/content/variants";
+import type { Lang } from "@/lib/i18n";
 
-import { useEffect, useRef } from "react";
-
-/** Decorative, pointer-responsive orbital sculpture; no WebGL or tracking. */
-export function HeroScene() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const element = ref.current;
-    if (!element || window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) return;
-    let frame = 0;
-    const move = (event: PointerEvent) => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        element.style.setProperty("--pointer-x", `${(event.clientX / window.innerWidth - 0.5) * 12}deg`);
-        element.style.setProperty("--pointer-y", `${(event.clientY / window.innerHeight - 0.5) * -8}deg`);
-      });
-    };
-    window.addEventListener("pointermove", move, { passive: true });
-    return () => { window.removeEventListener("pointermove", move); cancelAnimationFrame(frame); };
-  }, []);
+/** A conceptual operating model, not a simulated live product dashboard. */
+export function HeroScene({ lang, audience }: { lang: Lang; audience: Audience }) {
+  const v = variants[lang][audience];
   return (
-    <div ref={ref} className="hero-scene" aria-hidden="true">
-      <div className="scene-glow" />
-      <div className="orbital-sculpture">
-        <div className="orbit orbit-one" />
-        <div className="orbit orbit-two" />
-        <div className="orbit orbit-three" />
-        <div className="orbit orbit-four" />
-        <div className="orbit-core" />
-        <div className="orbit-satellite satellite-one" />
-        <div className="orbit-satellite satellite-two" />
+    <figure className="operations-scene" aria-label={v.focus}>
+      <div className="landscape-grid" aria-hidden="true"><div /><div /><div /></div>
+      <div className="scene-heading"><span className="release-dot" />GENIA OPS<span>{lang === "es" ? "MODELO ILUSTRATIVO" : "ILLUSTRATIVE MODEL"}</span></div>
+      <div className="operations-model">
+        <div className="model-context"><span>01 / {lang === "es" ? "CONTEXTO" : "CONTEXT"}</span><strong>{lang === "es" ? "Conocimiento empresarial" : "Business knowledge"}</strong><div className="context-lines" aria-hidden="true"><i /><i /><i /></div></div>
+        <div className="model-work"><div className="model-title"><span className="model-icon" aria-hidden="true">✳</span><div><small>{lang === "es" ? "OBJETIVO COMPARTIDO" : "SHARED OBJECTIVE"}</small><strong>{v.example}</strong></div></div><ol>{v.steps.map((step, i) => <li key={step}><span>0{i + 1}</span>{step}<i aria-hidden="true" /></li>)}</ol><div className="model-people"><span>{lang === "es" ? "Personas" : "People"}</span><b aria-hidden="true">↔</b><span>{lang === "es" ? "Agentes IA" : "AI agents"}</span><b aria-hidden="true">↔</b><span>{lang === "es" ? "Agentes IA" : "AI agents"}</span></div></div>
+        <div className="model-decision"><span className="decision-icon" aria-hidden="true">✓</span><div><small>{lang === "es" ? "CRITERIO HUMANO" : "HUMAN JUDGMENT"}</small><strong>{lang === "es" ? "Revisar. Decidir. Avanzar." : "Review. Decide. Move forward."}</strong></div></div>
       </div>
-      <div className="scene-grain" />
-    </div>
+      <figcaption><span>↳</span>{v.outcome}</figcaption>
+    </figure>
   );
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { USE_CASE_SLUGS } from "@/content";
+import { audiences } from "@/content/variants";
 import { LANGS, localePath } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
 
@@ -12,6 +13,7 @@ type Entry = {
 const PATHS: Entry[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/use-cases", changeFrequency: "monthly", priority: 0.8 },
+  ...audiences.map(audience => ({ path: `/for/${audience}`, changeFrequency: "monthly" as const, priority: 0.9 })),
   ...USE_CASE_SLUGS.map((slug) => ({
     path: `/use-cases/${slug}`,
     changeFrequency: "monthly" as const,
