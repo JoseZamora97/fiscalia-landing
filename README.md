@@ -1,34 +1,27 @@
-# Genia Ops — Enterprise AI
+# geniaops.com
 
-Public site for Genia Ops: enterprise AI, governance, human–AI and AI–AI orchestration, and AI-native businesses. https://geniaops.com
+Holding page for Genia Ops: the wordmark and the slogan on black, nothing else.
 
-Closed release, invitation only. Contact: accounts@geniaops.com. No pricing is published.
+The previous full landing (product sections, use cases, audience pages, ES/EN,
+light/dark) lives on the `old` branch.
 
-## Develop
+## Layout
 
-Next.js 16 App Router, React 19, Tailwind CSS 4, TypeScript.
-
-```sh
-npm ci
-npm run dev
-npm run build
-npm run start
-npx tsc --noEmit
+```
+src/app/layout.tsx    fonts (Geist, Zen Dots) and metadata
+src/app/page.tsx      the wordmark and the slogan
+src/app/globals.css   every style on the page
 ```
 
-## Content and routes
+To change the slogan, edit the single `<p className="slogan">` in
+`src/app/page.tsx` and the matching `description` in `src/app/layout.tsx`.
 
-- English: `/`, `/use-cases`, `/use-cases/[slug]`, `/privacy`, `/terms`.
-- Spanish: `/es`, `/es/casos-de-uso`, `/es/casos-de-uso/[slug]`, `/es/privacy`, `/es/terms`.
-- Content dictionaries live in `src/content`; both locales have the same sections.
-- Theme selection persists locally; the first visit follows the device preference.
-- Separate solution pages: `/for/startups`, `/for/scaleups`, `/for/enterprises`, with Spanish equivalents under `/es`.
-- The hero shows the actual product; CSS animates its ambient background and the explanatory workflow diagrams. Reduced motion disables continuous animation. No WebGL or third-party animation scripts.
-- Product captures are paired by theme. English captures live in `public/shots/en`; Spanish captures live in `public/shots`.
-- Privacy includes the Google API Services User Data Policy Limited Use disclosure. Public legal links remain accessible without authentication.
+## Local
 
-## Deployment
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build
+```
 
-GitHub repository: `JoseZamora97/fiscalia-landing`. Vercel project: `geniaops-landing`; production branch: `main`.
-
-Build and verify both locales, both themes, mobile navigation, legal pages and images before promoting. Use credentials injected by name from the project vault; never commit tokens.
+Deploys to Vercel (project `geniaops-landing`) on push to `main`.
