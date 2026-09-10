@@ -9,12 +9,16 @@ export function Shot({
   alt,
   url = "app.geniaops.com",
   priority = false,
+  lang = "es",
 }: {
   name: string;
   alt: string;
   url?: string;
   priority?: boolean;
+  lang?: "es" | "en";
 }) {
+  const directory = lang === "en" ? "/shots/en" : "/shots";
+
   return (
     <figure className="shot-frame m-0">
       <div className="shot-bar">
@@ -25,7 +29,7 @@ export function Shot({
       </div>
       <div className="relative">
         <Image
-          src={`/shots/${name}-light.png`}
+          src={`${directory}/${name}-light.png?v=20260910`}
           alt={alt}
           width={4320}
           height={2700}
@@ -35,7 +39,7 @@ export function Shot({
           className="block h-auto w-full dark:hidden"
         />
         <Image
-          src={`/shots/${name}-dark.png`}
+          src={`${directory}/${name}-dark.png?v=20260910`}
           alt={alt}
           width={4320}
           height={2700}

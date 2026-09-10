@@ -8,21 +8,21 @@ export function audiencePath(lang: Lang, audience: Audience) {
 export const variants = {
   es: {
     startups: {
-      label: "For Startups", role: "FOUNDERS · EQUIPOS PEQUEÑOS", kicker: "MENOS ESTRUCTURA. MÁS CAPACIDAD.",
+      label: "Para startups", role: "FUNDADORES · EQUIPOS PEQUEÑOS", kicker: "MENOS ESTRUCTURA. MÁS CAPACIDAD.",
       title: "Tu ambición no necesita", accent: "un equipo enorme.",
       body: "Construye una empresa nativa de IA desde el principio. Personas y agentes convierten objetivos en trabajo coordinado, mientras cada aprendizaje se queda en tu empresa.",
       focus: "De la primera idea a una operación repetible.", example: "Preparar un lanzamiento", steps: ["Definir el objetivo", "Investigar y preparar", "Revisar y lanzar"],
       outcome: "El siguiente lanzamiento empieza con lo aprendido.", link: "Explorar el producto", target: "product",
     },
     scaleups: {
-      label: "For Scaleups", role: "COO · OPERACIONES · EQUIPOS EN CRECIMIENTO", kicker: "CRECER NO DEBERÍA MULTIPLICAR EL CAOS.",
+      label: "Para scaleups", role: "COO · OPERACIONES · EQUIPOS EN CRECIMIENTO", kicker: "CRECER NO DEBERÍA MULTIPLICAR EL CAOS.",
       title: "Más equipos.", accent: "Una misma dirección.",
       body: "Conecta personas, agentes y conocimiento empresarial en una operación compartida. Orquesta el trabajo Humano–IA e IA–IA sin perder el contexto entre departamentos.",
       focus: "Del trabajo fragmentado a una operación conectada.", example: "Coordinar la expansión", steps: ["Alinear equipos", "Orquestar el trabajo", "Revisar resultados"],
       outcome: "El conocimiento viaja entre equipos, no se pierde entre herramientas.", link: "Ver cómo se coordina", target: "how-it-works",
     },
     enterprises: {
-      label: "For Enterprises", role: "CEO · CIO · DIRECCIÓN · TRANSFORMACIÓN", kicker: "IA EMPRESARIAL. CON CRITERIO.",
+      label: "Para grandes empresas", role: "CEO · CIO · DIRECCIÓN · TRANSFORMACIÓN", kicker: "IA EMPRESARIAL. CON CRITERIO.",
       title: "La inteligencia escala.", accent: "El control permanece.",
       body: "Convierte la IA en capacidad operativa de tu empresa. Personas y agentes trabajan con contexto, responsabilidades y gobernanza; el conocimiento y las mejoras de productividad permanecen en tu organización.",
       focus: "De iniciativas aisladas a capacidad empresarial.", example: "Preparar una decisión de inversión", steps: ["Delimitar el contexto", "Analizar con agentes", "Decidir con criterio"],

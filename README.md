@@ -13,7 +13,7 @@ npm ci
 npm run dev
 npm run build
 npm run start
-npm run typecheck
+npx tsc --noEmit
 ```
 
 ## Content and routes
@@ -22,7 +22,9 @@ npm run typecheck
 - Spanish: `/es`, `/es/casos-de-uso`, `/es/casos-de-uso/[slug]`, `/es/privacy`, `/es/terms`.
 - Content dictionaries live in `src/content`; both locales have the same sections.
 - Theme selection persists locally; the first visit follows the device preference.
-- Hero sculpture uses CSS 3D, respects reduced motion, and requires no WebGL or third-party scripts.
+- Separate solution pages: `/for/startups`, `/for/scaleups`, `/for/enterprises`, with Spanish equivalents under `/es`.
+- The hero shows the actual product; CSS animates its ambient background and the explanatory workflow diagrams. Reduced motion disables continuous animation. No WebGL or third-party animation scripts.
+- Product captures are paired by theme. English captures live in `public/shots/en`; Spanish captures live in `public/shots`.
 - Privacy includes the Google API Services User Data Policy Limited Use disclosure. Public legal links remain accessible without authentication.
 
 ## Deployment

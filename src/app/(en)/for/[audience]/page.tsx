@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Home } from "@/components/home";
+import { AudienceView } from "@/components/audience-view";
 import { Shell } from "@/components/shell";
 import { audiences, variants, type Audience } from "@/content/variants";
 import { pageMeta } from "@/lib/meta";
@@ -20,5 +20,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 export default async function Page({ params }: Props) {
   const audience = resolve((await params).audience);
-  return <Shell lang={LANG} homePath={`/for/${audience}`}><Home lang={LANG} audience={audience} path={`/for/${audience}`} /></Shell>;
+  return <Shell lang={LANG}><AudienceView lang={LANG} audience={audience} /></Shell>;
 }

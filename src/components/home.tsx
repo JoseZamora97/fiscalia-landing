@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { HeroScene } from "@/components/hero-scene";
-import { audiences, audiencePath, variants, type Audience } from "@/content/variants";
+import { HeroScene, ParallelFlow, KnowledgeFlow } from "@/components/hero-scene";
 import { dict, useCases } from "@/content";
 import { localePath, type Lang } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
@@ -63,74 +62,42 @@ function JsonLd({ lang, path }: { lang: Lang; path: string }) {
   );
 }
 
-export function Home({ lang, audience = "enterprises", path = "/" }: { lang: Lang; audience?: Audience; path?: string }) {
+export function Home({ lang }: { lang: Lang }) {
   const d = dict(lang);
-  const v = variants[lang][audience];
   const cases = useCases(lang);
 
   return (
     <>
-      <JsonLd lang={lang} path={path} />
+      <JsonLd lang={lang} path="/" />
 
-      <div className="audience-experience" data-audience={audience}>
-      <nav className="variant-nav" aria-label={lang === "es" ? "Elige tu perspectiva" : "Choose your perspective"}>
-        <span>{lang === "es" ? "UNA PLATAFORMA. TU PERSPECTIVA." : "ONE PLATFORM. YOUR PERSPECTIVE."}</span>
-        <div>{audiences.map(a => <Link key={a} href={audiencePath(lang, a)} aria-current={a === audience ? "page" : undefined}><span className="variant-number">0{audiences.indexOf(a) + 1}</span>{variants[lang][a].label}<Arrow /></Link>)}</div>
-      </nav>
-      <section className="enterprise-hero">
-        <div className="hero-inner">
-          <div className="hero-copy">
-            <p className="hero-kicker">{v.kicker}</p>
-            <h1>{v.title}<br /><span>{v.accent}</span></h1>
-            <p className="hero-lede">{v.body}</p>
-            <div className="hero-actions">
-              <a href={mailto(lang)} className="btn btn-primary">{d.requestAccess}<Arrow /></a>
-              <a href={`#${v.target}`} className="hero-text-link">{v.link}<span aria-hidden="true"> ↘</span></a>
-            </div>
-            <p className="hero-note"><span className="release-dot" />{d.hero.badge}</p>
-          </div>
-          <HeroScene lang={lang} audience={audience} />
+      <div className="product-experience">
+      <section className="product-hero">
+        <div className="ambient-field" aria-hidden="true"><i /><i /><div className="ambient-contours" /></div>
+        <div className="product-hero-copy">
+          <p className="hero-kicker"><span className="release-dot" />{d.hero.badge}</p>
+          <h1>{lang === "es" ? "Tu equipo. Tus agentes." : "Your team. Your agents."}<br /><span>{lang === "es" ? "El trabajo, en marcha." : "Work, moving forward."}</span></h1>
+          <p>{lang === "es" ? "De un objetivo a un resultado. Planifica con IA, coordina agentes y toma decisiones con todo el contexto de tu empresa en un mismo espacio." : "From an objective to an outcome. Plan with AI, coordinate agents and make decisions with your business context in one workspace."}</p>
+          <div className="hero-actions"><a href={mailto(lang)} className="btn btn-primary">{d.requestAccess}<Arrow /></a><a href="#product" className="hero-text-link">{d.hero.ctaSecondary}<span aria-hidden="true"> ↘</span></a></div>
         </div>
-        <div className="perspective-brief"><span>{v.role}</span><p>{v.focus}</p><span>GENIA / OPS</span></div>
-        <div className="hero-product">
-          <div className="product-caption"><span className="release-dot" />{lang === "es" ? "Un espacio. Personas, agentes y conocimiento." : "One workspace. People, agents and knowledge."}<span className="caption-index">01 / GENIA OS</span></div>
-          <Shot name="project-detail" alt={d.hero.shotAlt} url="app.geniaops.com" priority />
-        </div>
-        <dl className="principles-strip">
-          {d.stats.map(s => <div key={s.label}><dt>{s.value}</dt><dd>{s.label}</dd></div>)}
-        </dl>
-      </section>
-
-      <section id="for-business" className="audience-section section-wrap">
-        <SectionHead eyebrow={d.audiences.eyebrow} title={d.audiences.title} body={d.audiences.body} />
-        <div className="audience-grid">
-          {d.audiences.items.map((item, index) => <article className="audience-card" id={item.id} key={item.id}>
-            <div className="audience-top"><span className="eyebrow">{item.label}</span><span className="card-index">0{index + 1}</span></div>
-            <div className={`scale-art scale-art-${index}`} aria-hidden="true">{Array.from({length: 9}, (_, i) => <i key={i} />)}</div>
-            <h3>{item.title}</h3><p>{item.body}</p>
-            <div className="audience-example"><span className="eyebrow">{lang === "es" ? "UN EJEMPLO" : "IN PRACTICE"}</span><p>{item.example}</p></div>
-            <p className="audience-outcome"><Arrow />{item.outcome}</p>
-            <Link className="audience-explore" href={audiencePath(lang, audiences[index])}>{lang === "es" ? "Ver esta perspectiva" : "Explore this perspective"}<Arrow /></Link>
-          </article>)}
+        <div className="product-stage">
+          <div className="product-caption"><span className="release-dot" />{lang === "es" ? "El espacio donde se hace el trabajo" : "The workspace where work happens"}<span className="caption-index">GENIA OPS / PRODUCT</span></div>
+          <Shot lang={lang} name="project-detail" alt={d.hero.shotAlt} priority />
+          <div className="stage-footnote"><span>{lang === "es" ? "Interfaz real del producto" : "Actual product interface"}</span><span>{lang === "es" ? "Objetivos · Conversaciones · Resultados" : "Objectives · Conversations · Results"}</span></div>
         </div>
       </section>
+      <section className="execution-section section-wrap" id="how-it-works">
+        <div className="execution-copy"><p className="eyebrow">{lang === "es" ? "NO ES OTRO CHAT" : "NOT ANOTHER CHAT"}</p><h2>{lang === "es" ? "Una conversación inicia el trabajo. No lo termina." : "A conversation starts the work. It doesn’t end it."}</h2><p>{lang === "es" ? "Define qué necesitas. Revisa el plan. Deja que los agentes trabajen en paralelo y continúen cuando sus dependencias estén listas. Tú aportas el criterio; el contexto y los entregables quedan en el proyecto." : "Define what you need. Review the plan. Let agents work in parallel and continue when their dependencies are ready. You bring the judgment; the context and deliverables stay with the project."}</p><a href="#agents" className="text-link">{lang === "es" ? "Mira cómo trabajan los agentes" : "See how agents work"}<Arrow /></a></div>
+        <HeroScene lang={lang} />
+      </section>
 
+      <section className="parallel-section section-wrap"><ParallelFlow lang={lang} /><div className="execution-copy"><p className="eyebrow">{lang === "es" ? "COORDINACIÓN ENTRE AGENTES" : "AGENT-TO-AGENT COORDINATION"}</p><h2>{lang === "es" ? "En paralelo cuando pueden. En orden cuando importa." : "Parallel where possible. In sequence where it matters."}</h2><p>{lang === "es" ? "Un agente revisa los contratos mientras otro analiza las facturas. El siguiente objetivo espera a ambos antes de consolidar el resultado. Define las dependencias en el plan: el trabajo continúa sin que tengas que copiar el contexto de una conversación a otra." : "One agent reviews contracts while another analyzes invoices. The next objective waits for both before consolidating the result. Define dependencies in the plan: work continues without copying context from one conversation to another."}</p></div></section>
       <section className="ownership-section">
-        <div className="section-wrap ownership-grid"><p className="eyebrow">{d.ownership.eyebrow}</p><div><h2>{d.ownership.title}</h2><p>{d.ownership.body}</p></div></div>
+        <div className="section-wrap retained-layout"><div><p className="eyebrow">{d.ownership.eyebrow}</p><h2>{d.ownership.title}</h2><p>{d.ownership.body}</p></div><KnowledgeFlow lang={lang} /></div>
       </section>
 
-      {/* ---------------------------------------------------------- what is */}
-      <section id="what-is" className="scroll-mt-24 border-y border-border bg-[var(--bg-elev)]">
-        <div className="mx-auto max-w-4xl px-6 py-20">
-          <h2 className="text-[28px] font-semibold sm:text-[34px]">{d.whatIs.title}</h2>
-          <div className="mt-6 space-y-4 text-[16px] leading-relaxed text-fg-muted">
-            {d.whatIs.paragraphs.map((p, i) => (
-              <p key={i}>
-                <Rich>{p}</Rich>
-              </p>
-            ))}
-          </div>
-        </div>
+      <section id="why-genia" className="section-wrap execution-section">
+        <div className="execution-copy"><p className="eyebrow">{d.difference.eyebrow}</p><h2>{d.difference.title}</h2><p>{d.difference.body}</p></div>
+        <ol className="explanation-steps">{d.difference.items.map((item, i) => <li key={item.title}><span>0{i + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></li>)}</ol>
       </section>
 
       {/* --------------------------------------------------------- product */}
@@ -142,14 +109,14 @@ export function Home({ lang, audience = "enterprises", path = "/" }: { lang: Lan
             body={d.product.body}
           />
 
-          <div className="mt-16 space-y-24">
+          <div className="product-features">
             {d.product.features.map((f, i) => (
               <article
                 key={f.id}
                 id={f.id}
-                className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14"
+                className="product-feature"
               >
-                <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
+                <div className="feature-copy">
                   <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-accent-text">
                     {f.eyebrow}
                   </p>
@@ -165,31 +132,12 @@ export function Home({ lang, audience = "enterprises", path = "/" }: { lang: Lan
                   </ul>
                 </div>
 
-                <div className={i % 2 === 1 ? "lg:order-1" : undefined}>
-                  <Shot name={f.shot} alt={f.shotAlt} url={f.url} />
+                <div className="feature-screen">
+                  <Shot lang={lang} name={f.shot} alt={f.shotAlt} url={f.url} />
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ----------------------------------------------------- how it works */}
-      <section
-        id="how-it-works"
-        className="scroll-mt-24 border-y border-border bg-[var(--bg-elev)]"
-      >
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <SectionHead eyebrow={d.how.eyebrow} title={d.how.title} />
-          <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {d.how.steps.map((s) => (
-              <li key={s.n} className="glass-card p-6">
-                <span className="font-mono text-[13px] font-medium text-accent-text">{s.n}</span>
-                <h3 className="mt-3 text-[17px] font-semibold">{s.title}</h3>
-                <p className="mt-2.5 text-[14px] leading-relaxed text-fg-muted">{s.body}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -250,11 +198,6 @@ export function Home({ lang, audience = "enterprises", path = "/" }: { lang: Lan
             <Rich>{d.security.footnote}</Rich>
           </p>
         </div>
-      </section>
-
-      <section id="why-genia" className="section-wrap difference-section">
-        <SectionHead eyebrow={d.difference.eyebrow} title={d.difference.title} body={d.difference.body} />
-        <div className="difference-grid">{d.difference.items.map((item, i) => <article key={item.title}><span className="card-index">0{i + 1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
       </section>
 
       {/* ------------------------------------------------------- use cases */}
